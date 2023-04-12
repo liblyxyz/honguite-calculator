@@ -1,6 +1,6 @@
 # Honguite Calculator 🍄
 
-El proyecto consta de tres (3) archivos: `index.html`, que contiene la estructura de la interfaz de usuario, `styles.css`, con los estilos de la pagina, y `script.js`, el cual tiene todas las funciones aritmetricas y logicas de la calculadora.
+El proyecto consta de tres archivos: `index.html`, que contiene la estructura de la interfaz de usuario, `styles.css`, con los estilos de la pagina, y `script.js`, el cual tiene todas las funciones aritmetricas y logicas de la calculadora.
 
 El proyecto consta de una sola pagina con la calculadora, y lleva a cabo las operaciones de manera dinamica en tiempo real, sin necesidad de recargar la pagina o redireccionar al usuario.
 
