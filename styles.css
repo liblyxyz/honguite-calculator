@@ -1,234 +1,244 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 :root {
-    --main-bg-color: #3C6EA4;
-    --calc-bg-color: #D2CDC2;
-    --button-bg-color: #D9D9D9;
+  --main-bg-color: #3c6ea4;
+  --calc-bg-color: #d2cdc2;
+  --button-bg-color: #d9d9d9;
 }
 
 * {
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: 'Share Tech Mono', monospace;
-    background-color: var(--main-bg-color);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Share Tech Mono", monospace;
+  background-color: var(--main-bg-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .calc {
-    background-color: var(--calc-bg-color);
-    width: 512px;
-    height: 453px;
-    box-shadow: 4px 4px rgba(17,0,0,1);
+  background-color: var(--calc-bg-color);
+  width: 512px;
+  height: 453px;
+  box-shadow: 4px 4px rgba(17, 0, 0, 1);
 }
 
 .calc__btn {
-    box-shadow: -4px -4px gray;
-    box-shadow: 4px 4px black;
-    text-align: center;
-    width: 70px; 
-    height: 51px;
-    background-color: var(--button-bg-color);
-    user-select: none; 
-    font-size: 20;
-    max-width: 100%;
-    max-height: 100%;
-    padding-top: 13%;
+  box-shadow: -4px -4px gray;
+  box-shadow: 4px 4px black;
+  text-align: center;
+  width: 70px;
+  height: 51px;
+  background-color: var(--button-bg-color);
+  user-select: none;
+  font-size: 20;
+  max-width: 100%;
+  max-height: 100%;
+  padding-top: 13%;
 }
 
 .calc__header {
-    position: relative;
-    top: 9px;
-    margin-left: 8px;
-    width: 495px;
-    height: 32px;
-    background: linear-gradient(90deg, rgba(8,8,70,1) 27%, rgba(114,147,198,1) 44%, rgba(143,168,203,1) 62%);
-    display: flex;
-    align-items: center;
-    user-select: none; 
+  position: relative;
+  top: 9px;
+  margin-left: 8px;
+  width: 495px;
+  height: 32px;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 8, 70, 1) 27%,
+    rgba(114, 147, 198, 1) 44%,
+    rgba(143, 168, 203, 1) 62%
+  );
+  display: flex;
+  align-items: center;
+  user-select: none;
 }
 
 .header__icon {
-    position: absolute;
-    left: 5px;
+  position: absolute;
+  left: 5px;
 }
 
 .header__title {
-    position: absolute;
-    left: 40px;
-    font-size: 20;
+  position: absolute;
+  left: 40px;
+  font-size: 20;
 }
 
 .header__btns {
-    display: flex;
-    justify-content: space-between;
-    width: 97px;
-    height: 24px;
-    position: absolute;
-    right: 4px;
-    font-size: 20;
+  display: flex;
+  justify-content: space-between;
+  width: 97px;
+  height: 24px;
+  position: absolute;
+  right: 4px;
+  font-size: 20;
 }
 
 .header__btn {
-    width: 30px;
-    height: 23px;
-    background-color: var(--button-bg-color);
-    box-shadow: 2px 2px black;
-    text-align: center;
+  width: 30px;
+  height: 23px;
+  background-color: var(--button-bg-color);
+  box-shadow: 2px 2px black;
+  text-align: center;
 }
 
 .calc__screen {
-    margin-top: 40px;
-    margin-left: 17px;
-    width: 475px;
-    height: 35px;
-    background-color: white;
-    box-shadow: inset 4px 4px black;
+  margin-top: 40px;
+  margin-left: 17px;
+  width: 475px;
+  height: 35px;
+  background-color: white;
+  box-shadow: inset 4px 4px black;
 }
 
 .calc__figure {
-    position: absolute;
-    top: 180;
+  position: relative;
+  left: 10;
+  bottom: 280;
 }
 
 .figure__img {
-    height: 270px;
-    width: 95px;
-    
+  height: 270px;
+  width: 95px;
 }
 
-
 .calc__btns {
-    width: 374px;
-    height: 291px;
-    margin-top: 30px;
-    margin-left: 100px;
-    display: grid;
-    grid-gap: 6px;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "backspace backspace ce ce c"
-      "seven eight nine division sqrt"
-      "four five six multiply percentage"
-      "one two three subtract fraction"
-      "zero positivity decimal addition equals";
-  }
-  
+  width: 374px;
+  height: 291px;
+  margin-top: 30px;
+  margin-left: 120px;
+}
+
+.btns__delete {
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr;
+  grid-template-rows: 1fr;
+}
+
+.btns__grid {
+  margin-top: 6px;
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "seven eight nine division sqrt"
+    "four five six multiply percentage"
+    "one two three subtract fraction"
+    "zero positivity decimal addition equals";
+}
 
 .btn__special {
-    color: red
+  color: red;
 }
 
 .btn__special--delete {
-    width: 100px;
-    grid-column: span 1.5;
+  width: 120px;
 }
 
 .btn__number {
-    color: blue
+  color: blue;
 }
 
 .header__title {
-    color: white
+  color: white;
 }
 
-
 .btn__special--backspace {
-    grid-area: backspace;    
+  grid-area: backspace;
 }
 
 .btn__special--ce {
-    grid-area: ce;    
+  grid-area: ce;
 }
-    
+
 .btn__special--c {
-    grid-area: c;    
+  grid-area: c;
 }
 
 .btn__number--seven {
-    grid-area: seven;    
+  grid-area: seven;
 }
-    
+
 .btn__number--eight {
-    grid-area: eight;    
+  grid-area: eight;
 }
 
 .btn__number--nine {
-    grid-area: nine;   
+  grid-area: nine;
 }
 
 .btn__special--division {
-    grid-area: division;   
+  grid-area: division;
 }
 
 .btn__special--sqrt {
-    grid-area: sqrt;    
+  grid-area: sqrt;
 }
 
 .btn__number--four {
-    grid-area: four;    
+  grid-area: four;
 }
 
 .btn__number--five {
-    grid-area: five;   
+  grid-area: five;
 }
 
 .btn__number--six {
-    grid-area: six;    
+  grid-area: six;
 }
 
 .btn__special--multiply {
-    grid-area: multiply;   
+  grid-area: multiply;
 }
 
 .btn__special--percentage {
-    grid-area: percentage;    
+  grid-area: percentage;
 }
 
 .btn__number--one {
-    grid-area: one;    
+  grid-area: one;
 }
 
 .btn__number--two {
-    grid-area: two;    
+  grid-area: two;
 }
 
 .btn__number--three {
-    grid-area: three;    
+  grid-area: three;
 }
 
 .btn__special--subtract {
-    grid-area: subtract;     
+  grid-area: subtract;
 }
 
 .btn__special--fraction {
-    grid-area: fraction; 
+  grid-area: fraction;
 }
 
 .btn__number--zero {
-    grid-area: zero;    
+  grid-area: zero;
 }
 
 .btn__special--positivity {
-    grid-area: positivity;    
+  grid-area: positivity;
 }
 
 .btn__special--decimal {
-    grid-area: decimal;    
+  grid-area: decimal;
 }
 
 .btn__special--addition {
-    grid-area: addition;  
+  grid-area: addition;
 }
 
 .btn__special--equals {
-    grid-area: equals;   
+  grid-area: equals;
 }
