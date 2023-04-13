@@ -149,12 +149,8 @@ decimalButton.onclick = () => {
 
 // Terrible honguite
 const honguiteImg = document.querySelector('.figure__img');
-const audio = new Audio();
-
-audio.src = 'honguite.mp3';
+const audio = new Audio('hongo.mp3');
 
 honguiteImg.onclick = () => {
-  audio.addEventListener('canplaythrough', () => {
-    audio.play();
-  });
+  audio.play();
 };
