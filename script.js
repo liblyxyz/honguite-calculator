@@ -121,12 +121,14 @@ multiplyButton.onclick = () => {
   lastValue = String(value.innerHTML).slice(-1);
 };
 
-ceButton.onclick = () => {
+cButton.onclick = () => {
   value.innerHTML = '';
 };
 
+ceButton.onclick = () => {};
+
 backspaceButton.onclick = () => {
-  value.innerHTML = string.substring(0, string.length - 1);
+  value.innerHTML = String(value.innerHTML).slice(0, -1);
 };
 
 decimalButton.onclick = () => {
