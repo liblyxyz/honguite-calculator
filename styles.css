@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
   --main-bg-color: #3c6ea4;
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: "Share Tech Mono", monospace;
+  font-family: 'Share Tech Mono', monospace;
   overflow: hidden;
 }
 
@@ -103,12 +103,14 @@ body {
   background-color: white;
   box-shadow: 4px 4px 4px rgba(140, 140, 140, 1);
   border: solid 1px;
+  text-align: right;
+  font-size: 200%;
 }
 
 .calc__figure {
   position: relative;
-  left: 10;
-  bottom: 280;
+  left: 10px;
+  bottom: 280px;
 }
 
 .figure__img {
@@ -138,10 +140,10 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "seven eight nine division sqrt"
-    "four five six multiply percentage"
-    "one two three subtract fraction"
-    "zero positivity decimal addition equals";
+    'seven eight nine division sqrt'
+    'four five six multiply percentage'
+    'one two three subtract fraction'
+    'zero positivity decimal addition equals';
 }
 
 .btn__special {

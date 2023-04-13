@@ -1,5 +1,5 @@
 // DOMS consts
-const calcScreen = document.querySelector('.calc__screen');
+const value = document.querySelector('.calc__screen');
 // Delete consts
 const backspaceButton = document.querySelector('.btn__delete--backspace');
 const ceButton = document.querySelector('.btn__delete--ce');
@@ -26,3 +26,131 @@ const percentageButton = document.querySelector('.btn__special--percentage');
 const sqrtButton = document.querySelector('.btn__special--sqrt');
 const divisionButton = document.querySelector('.btn__special--division');
 const multiplyButton = document.querySelector('.btn__special--multiply');
+
+// Variables
+let currentOp = null;
+let currentValue = null;
+let lastValue;
+let result = 'p';
+
+// Buttons
+const printValue = (n) => {
+  if (value.innerHTML === '0' || value.innerHTML == result) {
+    value.innerHTML = n;
+    result = 'p';
+  } else if (lastValue == '.' || value.innerHTML !== '0') {
+    value.innerHTML += n;
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+zeroButton.onclick = () => {
+  if (value.innerHTML === '0' || value.innerHTML == result) {
+    value.innerHTML = 0;
+  } else if (
+    lastValue === '.' ||
+    value.innerHTML != 0 ||
+    String(value.innerHTML).includes('.0')
+  ) {
+    value.innerHTML += 0;
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+oneButton.onclick = () => {
+  printValue(1);
+};
+
+twoButton.onclick = () => {
+  printValue(2);
+};
+
+threeButton.onclick = () => {
+  printValue(3);
+};
+
+fourButton.onclick = () => {
+  printValue(4);
+};
+
+fiveButton.onclick = () => {
+  printValue(5);
+};
+
+sixButton.onclick = () => {
+  printValue(6);
+};
+
+sevenButton.onclick = () => {
+  printValue(7);
+};
+
+eightButton.onclick = () => {
+  printValue(8);
+};
+
+nineButton.onclick = () => {
+  printValue(9);
+};
+
+additionButton.onclick = () => {
+  if (!value.innerHTML == 0) {
+    value.innerHTML += '+';
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+subtractButton.onclick = () => {
+  if (!value.innerHTML == 0) {
+    value.innerHTML += '-';
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+divisionButton.onclick = () => {
+  if (!value.innerHTML == 0) {
+    value.innerHTML += '/';
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+multiplyButton.onclick = () => {
+  if (!value.innerHTML == 0) {
+    value.innerHTML += '*';
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+ceButton.onclick = () => {
+  value.innerHTML = '';
+};
+
+backspaceButton.onclick = () => {
+  value.innerHTML = string.substring(0, string.length - 1);
+};
+
+decimalButton.onclick = () => {
+  if (
+    !lastValue === '.' ||
+    (value.innerHTML == result &&
+      String(
+        value.innerHTML.includes('.') &&
+          (String(value.innerHTML).includes('+') ||
+            String(value.innerHTML).includes('-') ||
+            String(value.innerHTML).includes('×') ||
+            String(value.innerHTML).includes('÷')) &&
+          lastValue !== '.'
+      ))
+  ) {
+    value.innerHTML += '.';
+  }
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+// Terrible honguite
+var honguiteImg = document.getElementById('honguiteImg');
+var honguiteSound = document.getElementById('honguiteSound');
+
+honguiteImg.addEventListener('click', function () {
+  honguiteSound.play();
+});
