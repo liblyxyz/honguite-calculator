@@ -148,9 +148,9 @@ decimalButton.onclick = () => {
 };
 
 // Terrible honguite
-var honguiteImg = document.getElementById('honguiteImg');
-var honguiteSound = document.getElementById('honguiteSound');
+const honguiteImg = document.getElementById('honguiteImg');
+const audio = new Audio('honguite.mp3');
 
-honguiteImg.addEventListener('click', function () {
-  honguiteSound.play();
-});
+honguiteImg.onclick = () => {
+  audio.play();
+};
