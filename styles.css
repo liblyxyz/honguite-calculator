@@ -48,7 +48,7 @@ body {
   width: 70px;
   height: 51px;
   background-color: var(--button-bg-color);
-  user-select: none;
+
   font-size: 20;
   max-width: 100%;
   max-height: 100%;
@@ -70,7 +70,6 @@ body {
   background: var(--header-gradient);
   display: flex;
   align-items: center;
-  user-select: none;
 }
 
 .header__icon {
@@ -129,11 +128,6 @@ body {
   height: 270px;
   width: 95px;
   filter: saturate(200%);
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
 }
 
 .calc__btns {
@@ -301,13 +295,17 @@ body {
   .calc__screen {
     width: 100vw;
     height: 25vh;
-    margin-top: 0px;
+    margin-top: 5vh;
     margin-left: 0px;
     box-shadow: 0px 4px 4px rgba(140, 140, 140, 1);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 4rem;
   }
 
   .calc__btns {
-    margin-top: 0;
+    margin-top: 5vh;
     margin-left: 0;
     width: 90%;
     position: absolute;
