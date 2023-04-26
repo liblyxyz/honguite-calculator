@@ -36,22 +36,22 @@ let factorIndexes = [];
 let index = 0;
 
 // Buttons
-const printValue = (n) => {
+const printValue = (val) => {
   if (
     value.innerHTML === "0" ||
     value.innerHTML == result ||
     value.innerHTML == "Error ⚠"
   ) {
-    value.innerHTML = n;
+    value.innerHTML = val;
     result = "p";
   } else if (lastValue == "." || value.innerHTML !== "0") {
-    value.innerHTML += n;
+    value.innerHTML += val;
   }
   lastValue = String(value.innerHTML).slice(-1);
 };
 
 zeroButton.onclick = () => {
-  if (value.innerHTML === "0" || value.innerHTML == result) {
+  /*  if (value.innerHTML === "0" || value.innerHTML == result) {
     value.innerHTML = 0;
   } else if (
     lastValue === "." ||
@@ -60,7 +60,10 @@ zeroButton.onclick = () => {
   ) {
     value.innerHTML += 0;
   }
-  lastValue = String(value.innerHTML).slice(-1);
+  lastValue = String(value.innerHTML).slice(-1);*/
+  if (value.innerHTML != 0) {
+    printValue(0);
+  }
 };
 
 oneButton.onclick = () => {
@@ -100,28 +103,31 @@ nineButton.onclick = () => {
 };
 
 additionButton.onclick = () => {
-  if (value.innerHTML != 0) {
+  if (value.innerHTML != 0 && !isOperator(lastValue)) {
+    factorIndexes[index++] = value.innerHTML.length;
     value.innerHTML += "+";
   }
   lastValue = String(value.innerHTML).slice(-1);
 };
 
 subtractButton.onclick = () => {
-  if (value.innerHTML != 0) {
+  if (value.innerHTML != 0 && !isOperator(lastValue)) {
+    factorIndexes[index++] = value.innerHTML.length;
     value.innerHTML += "-";
   }
   lastValue = String(value.innerHTML).slice(-1);
 };
 
 divisionButton.onclick = () => {
-  if (value.innerHTML != 0) {
+  if (value.innerHTML != 0 && !isOperator(lastValue)) {
+    factorIndexes[index++] = value.innerHTML.length;
     value.innerHTML += "/";
   }
   lastValue = String(value.innerHTML).slice(-1);
 };
 
 multiplyButton.onclick = () => {
-  if (value.innerHTML != 0) {
+  if (value.innerHTML != 0 && !isOperator(lastValue)) {
     factorIndexes[index++] = value.innerHTML.length;
     value.innerHTML += "*";
   }
@@ -130,19 +136,21 @@ multiplyButton.onclick = () => {
 
 cButton.onclick = () => {
   value.innerHTML = "";
+  factorIndexes = "";
 };
 
 ceButton.onclick = () => {};
 
 backspaceButton.onclick = () => {
-  if (isOperator(lastValue)) {
-    factorIndexes.pop();
-  }
+  //if (isOperator(lastValue)) {
+  //  factorIndexes.pop();
+  //}
   value.innerHTML = String(value.innerHTML).slice(0, -1);
+  lastValue = String(value.innerHTML).slice(-1);
 };
 
 /* decimalButton.onclick = () => {
-  while (lastValue.isOperator())
+  while (isOperator(lastValue))
     if (
       lastValue !== "." &&
       d
@@ -163,16 +171,18 @@ backspaceButton.onclick = () => {
 }; */
 
 equalsButton.onclick = () => {
-  try {
-    value.innerHTML = eval(value.innerHTML);
-  } catch (e) {
-    value.innerHTML = "Error ⚠";
+  if (value.innerHTML != 0) {
+    try {
+      value.innerHTML = eval(value.innerHTML);
+    } catch (e) {
+      value.innerHTML = "Error ⚠";
+    }
   }
 };
 
-function isOperator(lastVal) {
-  return lastVal == "+" || lastVal == "-" || lastVal == "*" || lastVal == "/";
-}
+isOperator = (val) => {
+  return val == "+" || val == "-" || val == "*" || val == "/";
+};
 
 // Terrible honguite
 const honguiteImg = document.querySelector(".figure__img");
