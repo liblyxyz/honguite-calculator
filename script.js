@@ -40,7 +40,8 @@ const printValue = (val) => {
   if (
     value.innerHTML === "0" ||
     value.innerHTML == result ||
-    value.innerHTML == "Error ⚠"
+    value.innerHTML == "Error ⚠" ||
+    value.innerHTML == "Infinity"
   ) {
     value.innerHTML = val;
     result = "p";
@@ -50,17 +51,21 @@ const printValue = (val) => {
   lastValue = String(value.innerHTML).slice(-1);
 };
 
-zeroButton.onclick = () => {
-  /*  if (value.innerHTML === "0" || value.innerHTML == result) {
-    value.innerHTML = 0;
-  } else if (
-    lastValue === "." ||
-    value.innerHTML != 0 ||
-    String(value.innerHTML).includes(".0")
+const printOperator = (op) => {
+  if (
+    value.innerHTML != "0" &&
+    value.innerHTML != result &&
+    value.innerHTML != "Error ⚠" &&
+    value.innerHTML != "Infinity" &&
+    !isOperator(lastValue)
   ) {
-    value.innerHTML += 0;
+    factorIndexes[index++] = value.innerHTML.length;
+    value.innerHTML += op;
   }
-  lastValue = String(value.innerHTML).slice(-1);*/
+  lastValue = String(value.innerHTML).slice(-1);
+};
+
+zeroButton.onclick = () => {
   if (value.innerHTML != 0) {
     printValue(0);
   }
@@ -103,53 +108,39 @@ nineButton.onclick = () => {
 };
 
 additionButton.onclick = () => {
-  if (value.innerHTML != 0 && !isOperator(lastValue)) {
-    factorIndexes[index++] = value.innerHTML.length;
-    value.innerHTML += "+";
-  }
-  lastValue = String(value.innerHTML).slice(-1);
+  printOperator("+");
 };
 
 subtractButton.onclick = () => {
-  if (value.innerHTML != 0 && !isOperator(lastValue)) {
-    factorIndexes[index++] = value.innerHTML.length;
-    value.innerHTML += "-";
-  }
-  lastValue = String(value.innerHTML).slice(-1);
+  printOperator("-");
 };
 
 divisionButton.onclick = () => {
-  if (value.innerHTML != 0 && !isOperator(lastValue)) {
-    factorIndexes[index++] = value.innerHTML.length;
-    value.innerHTML += "/";
-  }
-  lastValue = String(value.innerHTML).slice(-1);
+  printOperator("/");
 };
 
 multiplyButton.onclick = () => {
-  if (value.innerHTML != 0 && !isOperator(lastValue)) {
-    factorIndexes[index++] = value.innerHTML.length;
-    value.innerHTML += "*";
-  }
-  lastValue = String(value.innerHTML).slice(-1);
+  printOperator("*");
 };
 
 cButton.onclick = () => {
   value.innerHTML = "";
-  factorIndexes = "";
+  factorIndexes = [];
 };
 
 ceButton.onclick = () => {};
 
 backspaceButton.onclick = () => {
-  //if (isOperator(lastValue)) {
-  //  factorIndexes.pop();
-  //}
+  if (isOperator(lastValue)) {
+    factorIndexes.pop();
+  }
   value.innerHTML = String(value.innerHTML).slice(0, -1);
   lastValue = String(value.innerHTML).slice(-1);
 };
 
 /* decimalButton.onclick = () => {
+  factorIndexes[factorIndexes.length - 1]
+
   while (isOperator(lastValue))
     if (
       lastValue !== "." &&
@@ -180,7 +171,7 @@ equalsButton.onclick = () => {
   }
 };
 
-isOperator = (val) => {
+const isOperator = (val) => {
   return val == "+" || val == "-" || val == "*" || val == "/";
 };
 
