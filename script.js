@@ -177,7 +177,7 @@ const isOperator = (val) => {
 
 // Terrible honguite
 const honguiteImg = document.querySelector(".figure__img");
-const audio = new Audio("assets/hongo.mp3");
+const audio = new Audio("./hongo.mp3");
 
 honguiteImg.onclick = () => {
   audio.play();
